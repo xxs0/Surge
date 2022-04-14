@@ -96,7 +96,9 @@ async function processFilterRules(filterRulesUrl) {
     'whoami.akamai.net',
     'whoami.ds.akahelp.net',
     'pxlk9.net.', // This one is malformed from EasyList, which I will manually add instead
-    'instant.page' // No, it doesn't violate anyone's privacy. I will whitelist it
+    'instant.page', // No, it doesn't violate anyone's privacy. I will whitelist it
+    'piwik.pro',
+    'mixpanel.com'
   ]);
   /** @type Set<string> */
   const blacklistDomainSets = new Set();
