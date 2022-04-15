@@ -99,7 +99,8 @@ async function processFilterRules(filterRulesUrl) {
     'instant.page', // No, it doesn't violate anyone's privacy. I will whitelist it
     'piwik.pro',
     'mixpanel.com',
-    'heapanalytics.com'
+    'heapanalytics.com',
+    'dataunlocker.com'
   ]);
   /** @type Set<string> */
   const blacklistDomainSets = new Set();
