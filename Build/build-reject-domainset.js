@@ -100,7 +100,10 @@ async function processFilterRules(filterRulesUrl) {
     'piwik.pro',
     'mixpanel.com',
     'heapanalytics.com',
-    'dataunlocker.com'
+    'dataunlocker.com',
+    'segment.com',
+    'segment.io',
+    'segmentify.com'
   ]);
   /** @type Set<string> */
   const blacklistDomainSets = new Set();
