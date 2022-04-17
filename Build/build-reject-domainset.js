@@ -151,9 +151,9 @@ async function processFilterRules(filterRulesUrl) {
         || line.endsWith('^|')
       )
     ) {
-      const domain = `.${line.replaceAll('||', '').replaceAll('^|', '').replaceAll('^', '')}`.trim();
+      const domain = `${line.replaceAll('||', '').replaceAll('^|', '').replaceAll('^', '')}`.trim();
       if (rDomain.test(domain)) {
-        blacklistDomainSets.add(domain);
+        blacklistDomainSets.add(`.${domain}`);
       }
     } else if (line.startsWith('://')
       && (
