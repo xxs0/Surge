@@ -1,5 +1,5 @@
 const { isIP } = require('net');
-const { default: got } = require('got-cjs');
+const { fetch } = require('undici');
 
 const rDomain = /^(((?!\-))(xn\-\-)?[a-z0-9\-_]{0,61}[a-z0-9]{1,1}\.)*(xn\-\-)?([a-z0-9\-]{1,61}|[a-z0-9\-]{1,30})\.[a-z]{2,}$/m
 
@@ -14,7 +14,7 @@ async function processDomainLists(domainListsUrl) {
   /** @type Set<string> */
   const domainSets = new Set();
   /** @type string[] */
-  const domains = (await got(domainListsUrl).text()).split('\n');
+  const domains = (await (await fetch(domainListsUrl)).text()).split('\n');
   domains.forEach(line => {
     if (
       line.startsWith('#')
@@ -44,7 +44,7 @@ async function processHosts(hostsUrl, includeAllSubDomain = false) {
   const domainSets = new Set();
 
   /** @type string[] */
-  const hosts = (await got(hostsUrl).text()).split('\n');
+  const hosts = (await(await fetch(hostsUrl)).text()).split('\n');
   hosts.forEach(line => {
     if (line.includes('#')) {
       return;
@@ -81,7 +81,7 @@ async function processFilterRules(filterRulesUrl) {
   const blacklistDomainSets = new Set();
 
   /** @type string[] */
-  const filterRules = (await got(filterRulesUrl).text()).split('\n').map(line => line.trim());
+  const filterRules = (await (await fetch(filterRulesUrl)).text()).split('\n').map(line => line.trim());
 
   filterRules.forEach(line => {
     if (
@@ -120,9 +120,15 @@ async function processFilterRules(filterRulesUrl) {
       && (
         line.endsWith('^')
         || line.endsWith('^|')
+        || line.endsWith('^$all')
       )
     ) {
-      const domain = `${line.replaceAll('||', '').replaceAll('^|', '').replaceAll('^', '')}`.trim();
+      const domain = line
+        .replaceAll('||', '')
+        .replaceAll('^|', '')
+        .replaceAll('^$all', '')
+        .replaceAll('^', '')
+        .trim();
       if (rDomain.test(domain)) {
         blacklistDomainSets.add(`.${domain}`);
       }
