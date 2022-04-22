@@ -21,7 +21,7 @@
 ```ini
 RULE-SET,https://ruleset.skk.moe/List/non_ip/reject.conf,reject-drop
 DOMAIN-SET,https://ruleset.skk.moe/List/domainset/reject.conf,reject-tinygif
-RULE-SET,https://ruleset.skk.moe/List/ip/reject.conf,reject-
+RULE-SET,https://ruleset.skk.moe/List/ip/reject.conf,reject-drop
 ```
 
 - 自动生成
