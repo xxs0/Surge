@@ -20,6 +20,8 @@ const rootPath = path.resolve(__dirname, '../');
  * @returns {string}
  */
 function template(urlList) {
+  const date = new Date();
+
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -47,6 +49,7 @@ function template(urlList) {
     <main class="container">
       <h1>Sukka Surge Ruleset Server</h1>
       <p>Made by <a href="https://skk.moe">Sukka</a> | <a href="https://github.com/SukkaW/Surge/">Source @ GitHub</a> | Licensed under <a href="https://github.com/SukkaW/Surge/blob/master/LICENSE" target="_blank">AGPL-3.0</a></p>
+      <p>Last Updated: ${date.toISOString()}</p>
       <hr>
       <br>
       <ul>
