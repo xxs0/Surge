@@ -67,7 +67,8 @@ RULE-SET,https://ruleset.skk.moe/List/non_ip/telegram.conf,[Replace with your po
 RULE-SET,https://ruleset.skk.moe/List/ip/telegram.conf,[Replace with your policy]
 ```
 
-- 人工维护
+- 域名规则 人工维护
+- IP CIDR 规则 自动生成
 
 #### Apple CDN
 
