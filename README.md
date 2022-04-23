@@ -68,7 +68,7 @@ RULE-SET,https://ruleset.skk.moe/List/ip/telegram.conf,[Replace with your policy
 ```
 
 - 域名规则 人工维护
-- IP CIDR 规则 自动生成
+- IP CIDR 规则 自动生成（数据来源：[`https://core.telegram.org/resources/cidr.txt`](https://core.telegram.org/resources/cidr.txt)）
 
 #### Apple CDN
 
