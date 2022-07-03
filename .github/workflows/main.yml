@@ -4,7 +4,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: '0 12 * * *'
+    - cron: '30 1 * * *'
 
 jobs:
   build:
@@ -35,4 +35,3 @@ jobs:
         user_email: ${{ secrets.GIT_EMAIL }}
         publish_branch: gh-pages
         publish_dir: ./
-        # cname: ruleset.skk.moe
